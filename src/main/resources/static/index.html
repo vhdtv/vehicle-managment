@@ -1,34 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Veículos</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Cadastro de Veículos</h1>
         <form id="veiculoForm">
             <label for="marca">Marca:</label>
-            <input type="text" id="marca" name="marca" required><br><br>
-            
+            <select id="marca" name="marca" required>
+                <option value="">Selecione uma marca</option>
+                <option value="Ford">Ford</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Toyota">Toyota</option>
+            </select><br><br>
+
             <label for="modelo">Modelo:</label>
-            <input type="text" id="modelo" name="modelo" required><br><br>
-            
+            <select id="modelo" name="modelo" required>
+                <option value="">Selecione uma marca primeiro</option>
+            </select><br><br>
+
             <label for="ano">Ano:</label>
-            <input type="number" id="ano" name="ano" required><br><br>
-            
+            <select id="ano" name="ano" required>
+                <option value="">Selecione um ano</option>
+            </select><br><br>
+
             <label for="placa">Placa:</label>
             <input type="text" id="placa" name="placa" required><br><br>
-            
-            <button type="submit">Cadastrar</button>
+
+            <button type="submit">Cadastrar/Salvar</button>
         </form>
 
         <h2>Veículos Cadastrados</h2>
-        <ul id="veiculoList"></ul>
+        <ul id="veiculoList">
+            <!-- Lista de veículos será carregada dinamicamente aqui -->
+        </ul>
+    </div>
+
+    <!-- Janela lateral para edição -->
+    <div id="editPanel" style="display:none; position:absolute; top:0; right:0; width:300px; background-color:#f0f0f0; padding:20px;">
+        <h3>Editar Veículo</h3>
+        <form id="editVeiculoForm">
+            <label for="editMarca">Marca:</label>
+            <select id="editMarca" name="editMarca" required>
+                <option value="">Selecione uma marca</option>
+                <option value="Ford">Ford</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Toyota">Toyota</option>
+            </select><br><br>
+
+            <label for="editModelo">Modelo:</label>
+            <select id="editModelo" name="editModelo" required>
+                <option value="">Selecione uma marca primeiro</option>
+            </select><br><br>
+
+            <label for="editAno">Ano:</label>
+            <select id="editAno" name="editAno" required>
+                <option value="">Selecione um ano</option>
+            </select><br><br>
+
+            <label for="editPlaca">Placa:</label>
+            <input type="text" id="editPlaca" name="editPlaca" required><br><br>
+
+            <button type="button" onclick="salvarEdicao()">Salvar Alterações</button>
+        </form>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
